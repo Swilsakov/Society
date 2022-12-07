@@ -1,0 +1,13 @@
+.nav {
+  grid-area: n;
+  background-color: #A8DADC;
+  padding: 20px;
+}
+
+.item a {
+  display: flex;
+  padding-bottom: 10px;
+  font-size: 18px;
+  color: #d2e2ff;
+  text-decoration: none;
+}
