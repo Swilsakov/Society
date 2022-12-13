@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage: {
     posts: [
@@ -25,6 +27,24 @@ let state = {
     {id: 5, title: 'Settings', url: '/settings'},
     {id: 4, title: 'Friends', url: '/friends'},
   ]
+}
+
+export let addPost = (postTitle) => {
+  let newPost = {
+    id: 5, title: postTitle, likesCount: 99
+  };
+
+  state.profilePage.posts.push(newPost);
+  rerenderEntireTree(state);
+}
+
+export let addMessage = (dialogMessage) => {
+  let newMessage = {
+    id: 4, message: dialogMessage
+  };
+
+  state.dialogsPage.messages.push(newMessage);
+  rerenderEntireTree(state);
 }
 
 export default state;

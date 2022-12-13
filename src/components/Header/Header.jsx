@@ -1,12 +1,11 @@
 import React from 'react';
 import s from './header.module.css';
+import image from './logo111.png'
 
 const Header = () => {
   return (
     <header className={s.header}>
-      <img src='
-        https://upload.wikimedia.org/wikipedia/commons/1/13/Wattpad_logo.png
-      ' alt='img'/>
+      <img src={image} alt='img'/>
     </header>
   )
 };
