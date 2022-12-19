@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import state, { addMessage, addPost } from './redux/state'
+import state, { addMessage, addPost, updateNewPostText } from './redux/state'
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderEntireTree = () => {
-  const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <BrowserRouter>
-      <App state={state} addPost={addPost} addMessage={addMessage}/>
+      <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} addMessage={addMessage}/>
     </BrowserRouter>
   );
 }
