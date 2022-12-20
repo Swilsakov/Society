@@ -4,7 +4,7 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
   let postsElements = props.posts.map(el => <Post key={el.id} message={el.title} likesCount={el.likesCount} />)
-  const newPostElement = React.createRef(); // VirtualDOM
+  let newPostElement = React.createRef(); // VirtualDOM
 
   let addPost = () => {
     props.addPost();
