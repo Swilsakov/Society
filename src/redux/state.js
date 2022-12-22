@@ -28,27 +28,28 @@ let store = {
       { id: 4, title: 'Friends', url: '/friends' },
     ]
   },
-  getState() {
-    return this._state;
-  },
   _callSubscriber() {
     console.log('State was changed');
   },
-  addPost() {
+
+  getState() {
+    return this._state;
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer; // observer - pattern. button.addEventListener
+  },
+
+  _addPost() {
     let newPost = {
       id: 5, title: this._state.profilePage.newPostText, likesCount: 0
     };
-
     this._state.profilePage.posts.push(newPost);
     this._state.profilePage.newPostText = '';
     this._callSubscriber(this._state);
   },
-  updateNewPostText(newText) {
+  _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubscriber(this._state);
-  },
-  subscribe(observer) {
-    this._callSubscriber = observer; // observer - pattern. button.addEventListener
   },
   addMessage(dialogMessage) {
   let newMessage = {
@@ -57,7 +58,16 @@ let store = {
 
   this._state.dialogsPage.messages.push(newMessage);
   this._callSubscriber(this._state);
-}
+  },
+  // отправка действий
+  dispatch(action) {
+    if(action.type === 'ADD-POST') {
+      this._addPost();
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._updateNewPostText(action.newText);
+    }
+  },
+
 }
 
 export default store;
