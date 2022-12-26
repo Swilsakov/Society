@@ -4,7 +4,6 @@ import Post from './Post/Post';
 import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
 
 const MyPosts = (props) => {
-  debugger;
   let postsElements = props.posts.map(el => <Post key={el.id} message={el.title} likesCount={el.likesCount} />)
   let newPostElement = React.createRef(); // VirtualDOM
 

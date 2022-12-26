@@ -5,7 +5,6 @@ import Message from './Message/Message';
 import { addMessageActionCreator, updateNewDialogMessageActionCreator } from '../../redux/state';
 
 const Dialogs = (props) => {
-  debugger;
   let dialogsElements = props.dialogsPage.dialogs.map(el => <Dialog key={el.id} name={el.name} id={el.id} img={el.img} />);
   let messagesElements = props.dialogsPage.messages.map(el => <Message key={el.id} message={el.message} />);
   const newMessageElement = React.createRef();
