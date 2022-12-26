@@ -24,7 +24,7 @@ let store = {
         { id: 2, message: 'Sup' },
         { id: 3, message: 'Yo' },
       ],
-      newDialogMessage: 'Hi'
+      newMessageText: 'Hi'
     },
     sidebar: [
       { id: 1, title: 'Profile', url: '/profile' },
@@ -59,14 +59,14 @@ let store = {
   },
   _addMessage() {
     let newMessage = {
-      id: 4, message: this._state.dialogsPage.newDialogMessage
+      id: 4, message: this._state.dialogsPage.newMessageText
     };
     this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newDialogMessage = '';
+    this._state.dialogsPage.newMessageText = '';
     this._callSubscriber(this._state);
   },
-  _updateNewDialogMessage(newMessage) {
-    this._state.dialogsPage.newDialogMessage = newMessage;
+  _updateNewMessageText(newMessage) {
+    this._state.dialogsPage.newMessageText = newMessage;
     this._callSubscriber(this._state);
   },
   dispatch(action) {
@@ -77,7 +77,7 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._updateNewPostText(action.newText);
     } else if (action.type === UPDATE_NEW_DIALOG_MESSAGE) {
-      this._updateNewDialogMessage(action.newMessage);
+      this._updateNewMessageText(action.newMessage);
     }
   },
 };
@@ -85,6 +85,6 @@ let store = {
 export const addPostActionCreator = () => ({ type: ADD_POST });
 export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
-export const updateNewDialogMessageActionCreator = (text) => ({ type: UPDATE_NEW_DIALOG_MESSAGE, newMessage: text });
+export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_DIALOG_MESSAGE, newMessage: text });
 
 export default store;
