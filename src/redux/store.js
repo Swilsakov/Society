@@ -23,7 +23,7 @@ let store = {
         { id: 2, message: 'Sup' },
         { id: 3, message: 'Yo' },
       ],
-      newMessageText: ''
+      newMessageText: 'Hi'
     },
     sidebar: [
       { id: 1, title: 'Profile', url: '/profile' },
