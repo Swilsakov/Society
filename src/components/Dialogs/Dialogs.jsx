@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from './Dialog/Dialog';
 import classes from './dialogs.module.css';
 import Message from './Message/Message';
-import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/state';
+import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsPage.dialogs.map(el => <Dialog key={el.id} name={el.name} id={el.id} img={el.img} />);
