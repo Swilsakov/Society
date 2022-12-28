@@ -8,15 +8,12 @@ const MyPosts = (props) => {
   let newPostElement = React.createRef(); // VirtualDOM
 
   let addPost = () => {
-    // props.addPost();
     let action = addPostActionCreator()
     props.dispatch(action)
   }
 
-  let onChangePost = () => {
-    let text = newPostElement.current.value;
-    // props.updateNewPostText(text);
-    // let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text }
+  let onChangePost = (e) => {
+    let text = e.target.value;
     let action = updateNewPostTextActionCreator(text)
     props.dispatch(action);
   }
