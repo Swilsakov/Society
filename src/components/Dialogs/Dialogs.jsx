@@ -5,7 +5,6 @@ import Message from './Message/Message';
 import { sendMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogs-reducer';
 
 const Dialogs = (props) => {
-  debugger;
   let state = props.store.getState().dialogsPage;
 
   let dialogsElements = state.dialogs.map(el => <Dialog key={el.id} name={el.name} id={el.id} img={el.img} />);
