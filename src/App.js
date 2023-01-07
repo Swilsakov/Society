@@ -20,12 +20,10 @@ const App = (props) => {
         <Routes>
           <Route default path='/profile'
             element={
-              <Profile store={props.store} />}
-          />
+              <Profile />}/>
           <Route path='/dialogs'
             element={
-              <DialogsContainer store={props.store}/>}
-          />
+              <DialogsContainer />}/>
           <Route path='/news' element={<News />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/friends' element={<Friends />} />

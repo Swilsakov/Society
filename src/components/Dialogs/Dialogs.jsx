@@ -13,12 +13,12 @@ const Dialogs = (props) => {
 
   let onSendMessageClick = () => {
     props.sendMessage();
-  }
+  };
 
   let onNewMessageChange = (e) => {
     let newMessage = e.target.value;
     props.updateNewMessageText(newMessage);
-  }
+  };
 
   return (
     <div className={classes.dialogs}>
