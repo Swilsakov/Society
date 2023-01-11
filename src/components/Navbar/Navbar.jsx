@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = (props) => {
   const activeStyle = ({ isActive }) => ({ color: isActive ? '#fff' : '#545e6f' })
-  let sidebarElements = props.state.sidebar.map( el => 
+  let sidebarElements = props.sidebar.map( el => 
     <NavLink 
       key={el.id}
       to={el.url} 
