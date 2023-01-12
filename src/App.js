@@ -18,7 +18,7 @@ const App = (props) => {
       <NavContainer />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route default path='/profile'
+          <Route path='/profile'
             element={
               <Profile />}/>
           <Route path='/dialogs'
@@ -27,6 +27,14 @@ const App = (props) => {
           <Route path='/news' element={<News />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/friends' element={<Friends />} />
+          <Route
+            path="*"
+            element={
+              <div>
+                <h2>404 Page not found</h2>
+              </div>
+            }
+          />
         </Routes>
       </div>
     </div>
