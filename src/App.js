@@ -9,6 +9,7 @@ import Profile from './components/Profile/Profile'
 import Settings from './components/Settings/Settings'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import NavContainer from './components/Navbar/NavbarContainer'
+import UsersContainer from './components/Users/UsersContainer'
 
 
 const App = (props) => {
@@ -18,23 +19,12 @@ const App = (props) => {
       <NavContainer />
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/profile'
-            element={
-              <Profile />}/>
-          <Route path='/dialogs'
-            element={
-              <DialogsContainer />}/>
+          <Route path='/profile' element={<Profile />}/>
+          <Route path='/dialogs' element={<DialogsContainer />}/>
+          <Route path='/users' element={<UsersContainer />}/>
           <Route path='/news' element={<News />} />
-          <Route path='/settings' element={<Settings />} />
           <Route path='/friends' element={<Friends />} />
-          <Route
-            path="*"
-            element={
-              <div>
-                <h2>404 Page not found</h2>
-              </div>
-            }
-          />
+          <Route path='/settings' element={<Settings />} />
         </Routes>
       </div>
     </div>
