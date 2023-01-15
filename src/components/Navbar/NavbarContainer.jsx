@@ -2,7 +2,6 @@ import { connect } from "react-redux"
 import Nav from "./Navbar"
 
 let mapStateToProps = (state) => {
-  debugger
   return {
     sidebar: state.sidebar
   }

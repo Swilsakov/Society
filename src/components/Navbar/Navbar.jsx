@@ -3,7 +3,6 @@ import classes from './navbar.module.css'
 import { NavLink } from 'react-router-dom'
 
 const Nav = (props) => {
-  debugger
   const activeStyle = ({ isActive }) => ({ color: isActive ? '#fff' : '#545e6f' })
   let sidebarElements = props.sidebar.map( el => 
     <NavLink 
