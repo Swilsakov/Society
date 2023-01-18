@@ -5,21 +5,19 @@ import userPhoto from '../../assets/images/user.png'
 
 class UsersC extends React.Component {
 
-  getUsers = () => {
-    if (this.props.users.length === 0) {
-      axios.get('https://social-network.samuraijs.com/api/1.0/users')
-        .then(res => {
-          console.log(res.data);
-          this.props.setUsers(res.data.items)
-        })
-        .catch(error => console.log(error));
-    }
+  constructor(props) {
+    super(props);
+    axios.get('https://social-network.samuraijs.com/api/1.0/users')
+      .then(res => {
+        console.log(res.data);
+        this.props.setUsers(res.data.items)
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.getUsers}>Get all Users</button>
         {
           this.props.users.map(u => <div key={u.id}>
             <span>
