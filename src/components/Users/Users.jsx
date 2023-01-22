@@ -1,24 +1,26 @@
-import React from 'react'
-import styles from './users.module.css'
-import axios from 'axios'
-import userPhoto from '../../assets/images/user.png'
+import React from 'react';
+import styles from './users.module.css';
+import userPhoto from '../../assets/images/user.png';
 
 const Users = (props) => {
-
-  let getUsers = () => {
-    if (props.users.length === 0) {
-      axios.get('https://social-network.samuraijs.com/api/1.0/users')
-        .then(res => {
-          console.log(res.data);
-          props.setUsers(res.data.items)
-        })
-        .catch(error => console.log(error));
-    }
-  }
+  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  };
+  let curP = props.currentPage;
+  let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
+  let curPL = curP + 5;
+  let slicedPages = pages.slice(curPF, curPL);
 
   return (
     <div>
-      <button onClick={getUsers}>Get all Users</button>
+      <div>
+        {slicedPages.map(p => {
+          return <span className={props.currentPage === p && styles.selectedPage}
+            onClick={(e) => { props.onPageChanged(p) }}>{p} </span>
+        })}
+      </div>
       {
         props.users.map(u => <div key={u.id}>
           <span>
@@ -38,7 +40,7 @@ const Users = (props) => {
             </span>
             <span>
               {/* <div>{u.location.country}</div>
-              <div>{u.location.city}</div> */}
+                <div>{u.location.city}</div> */}
             </span>
           </span>
         </div>)
@@ -47,4 +49,4 @@ const Users = (props) => {
   )
 }
 
-export default Users;
+export default Users
