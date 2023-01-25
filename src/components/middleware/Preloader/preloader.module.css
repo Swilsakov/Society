@@ -1,0 +1,8 @@
+.preloader__wrapper {
+  position: fixed;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background: #F1FAEE;
+  z-index: 100;
+}

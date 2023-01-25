@@ -1,6 +1,6 @@
-import React from 'react'
-import axios from 'axios'
-import { connect } from 'react-redux'
+import React from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
 import Users from './Users';
 import { followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleIsFetchingAC, unfollowAC } from '../../redux/users-reducer';
 import Preloader from '../middleware/Preloader/Preloader';
@@ -77,4 +77,4 @@ let mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
