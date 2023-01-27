@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './users.module.css';
 import userPhoto from '../../assets/images/user.png';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -17,7 +18,7 @@ const Users = (props) => {
     <div>
       <div>
         {slicedPages.map(p => {
-          return <span className={props.currentPage === p && styles.selectedPage}
+          return <span className={props.currentPage === p && styles.selectedPage} key={p.id}
             onClick={(e) => { props.onPageChanged(p) }}>{p} </span>
         })}
       </div>
@@ -25,7 +26,9 @@ const Users = (props) => {
         props.users.map(u => <div key={u.id}>
           <span>
             <div>
-              <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={styles.userPhoto} />
+              <NavLink to={`/profile/${u.id}`}>
+                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={styles.userPhoto} />
+              </NavLink>
             </div>
             <div>
               {u.followed
