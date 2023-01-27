@@ -11,7 +11,6 @@ import NavContainer from './components/Navbar/NavbarContainer'
 import UsersContainer from './components/Users/UsersContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'
 
-
 const App = (props) => {
   return (
     <div className='app-wrapper'>
