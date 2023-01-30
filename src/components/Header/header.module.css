@@ -3,9 +3,18 @@
   background-color: #168AAD;
 }
 
-
 .header img {
   width: 50px;
   padding: 5px;
   padding-left: 10px;
+}
+
+.login__block {
+  float: right;
+
+}
+
+.login__block a {
+  color: white;
+  text-decoration: none;
 }

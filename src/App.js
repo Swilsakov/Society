@@ -3,18 +3,18 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 
 import Friends from './components/Friends/Friends'
-import Header from './components/Header/Header'
 import News from './components/News/News'
 import Settings from './components/Settings/Settings'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import NavContainer from './components/Navbar/NavbarContainer'
 import UsersContainer from './components/Users/UsersContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'
+import HeaderContainer from './components/Header/HeaderContainer'
 
 const App = (props) => {
   return (
     <div className='app-wrapper'>
-      <Header />
+      <HeaderContainer />
       <NavContainer />
       <div className='app-wrapper-content'>
         <Routes>
