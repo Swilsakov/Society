@@ -11,7 +11,7 @@ const ProfileAPIContainer = (props) => {
   const params = useParams();
   if (!params.userId) {
     params.userId = 2;
-    console.log(params.userId);
+    // console.log(params.userId);
   }
 
   useEffect(() => {

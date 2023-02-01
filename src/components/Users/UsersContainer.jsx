@@ -1,17 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import Users from './Users';
 import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unfollow } from '../../redux/users-reducer';
 import Preloader from '../middleware/Preloader/Preloader';
+import { usersAPI } from '../../api/api';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-    {
-      withCredentials: true
-    })
+    usersAPI.getUsersAPI(this.props.currentPage, this.props.pageSize)
       .then(res => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(res.data.items)
@@ -23,10 +20,7 @@ class UsersContainer extends React.Component {
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-    {
-      withCredentials: true
-    })
+    usersAPI.getUsersAPI(pageNumber, this.props.pageSize)
       .then(res => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(res.data.items)
@@ -58,30 +52,6 @@ let mapStateToProps = (state) => {
     isFetching: state.usersPage.isFetching
   }
 };
-
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userId) => {
-//       dispatch(follow(userId))
-//     },
-//     unfollow: (userId) => {
-//       dispatch(unfollow(userId))
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsers(users))
-//     },
-//     setCurrentPage: (pageNumber) => {
-//       dispatch(setCurrentPage(pageNumber))
-//     },
-//     setTotalUsersCount: (totalCount) => {
-//       dispatch(setTotalUsersCount(totalCount))
-//     },
-//     toggleIsFetching: (isFetching) => {
-//       dispatch(toggleIsFetching(isFetching))
-//     }
-//   }
-// };
-
 
 export default connect(mapStateToProps, {
   follow,

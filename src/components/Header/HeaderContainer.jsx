@@ -14,7 +14,7 @@ const HeaderContainer = (props) => {
         if (res.data.resultCode === 0) {
           let { id, login, email } = res.data.data;
           props.setAuthUserData(id, login, email)
-          console.log(setAuthUserData);
+          // console.log(setAuthUserData);
         }
       })
   }
