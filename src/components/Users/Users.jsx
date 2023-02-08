@@ -23,34 +23,37 @@ const Users = (props) => {
         })}
       </div>
       {
-        props.users.map(u => <div key={u.id}>
-          <span>
-            <div>
-              <NavLink to={`/profile/${u.id}`}>
-                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={styles.userPhoto} />
-              </NavLink>
-            </div>
-            <div>
-              {u.followed
-                ? <button disabled={props.isFollowingInProgress.some(id => id === u.id)} onClick={() => {
-                  props.unfollow(u.id);
-                }}>Unfollow</button>
-                : <button disabled={props.isFollowingInProgress.some(id => id === u.id)} onClick={() => {
-                  props.follow(u.id);
-                }}>Follow</button>}
-            </div>
-          </span>
-          <span>
+        // props.isAuth ? 
+          props.users.map(u => <div key={u.id}>
             <span>
-              <div>{u.name}</div>
-              <div>{u.status}</div>
+              <div>
+                <NavLink to={`/profile/${u.id}`}>
+                  <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={styles.userPhoto} />
+                </NavLink>
+              </div>
+              <div>
+                {u.followed
+                  ? <button disabled={props.isFollowingInProgress.some(id => id === u.id)} onClick={() => {
+                    props.unfollow(u.id);
+                  }}>Unfollow</button>
+                  : <button disabled={props.isFollowingInProgress.some(id => id === u.id)} onClick={() => {
+                    props.follow(u.id);
+                  }}>Follow</button>}
+              </div>
             </span>
             <span>
-              {/* <div>{u.location.country}</div>
+              <span>
+                <div>{u.name}</div>
+                <div>{u.status}</div>
+              </span>
+              <span>
+                {/* <div>{u.location.country}</div>
                 <div>{u.location.city}</div> */}
+              </span>
             </span>
-          </span>
-        </div>)
+          </div>)
+
+          // : <div>You are not Auth</div>
       }
     </div>
   )
