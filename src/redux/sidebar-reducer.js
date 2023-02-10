@@ -1,5 +1,5 @@
 let initialState = [
-  { id: 1, title: 'Profile', url: '/profile/1' },
+  { id: 1, title: 'Profile', url: '/profile/27189' },
   { id: 2, title: 'Messages', url: '/dialogs' },
   { id: 3, title: 'News', url: '/news' },
   { id: 4, title: 'Users', url: '/users' },
